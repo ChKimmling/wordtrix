@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     author="Christian Kimmling",
     author_email="ckimmling@gmail.com",
-    description="A description of your package",
+    description="WordTrix is a command-line tool and library for managing and checking anagrams.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/ChKimmling/wordtrix",
