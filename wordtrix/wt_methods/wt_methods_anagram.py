@@ -37,15 +37,15 @@ def is_anagram(subject1: str, subject2: str, case_sensitive: bool = False) -> bo
         subject2 = subject2.lower()
 
     # Sort the characters of each string and compare
-    subject1_list = sorted(subject1)
-    subject2_list = sorted(subject2)
+    _subject1_list = sorted(subject1)
+    _subject2_list = sorted(subject2)
 
-    return subject1_list == subject2_list
+    return _subject1_list == _subject2_list
 
 ###############################################################################
 # Test section
 
-def testsuite__anagram():
+def testsuite__anagram() -> None:
     """
     Test suite to validate the is_anagram function.
 

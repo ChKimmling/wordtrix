@@ -75,13 +75,13 @@ def testsuite__database():
 
     # TESTCASE 02: Check for save and load
     save(_test_file1, _test_expected_text)
-    loaded_text = load(_test_file1)
-    assert loaded_text == _test_expected_text, "Failed: Saved and loaded text does not match expected text."
+    _loaded_text = load(_test_file1)
+    assert _loaded_text == _test_expected_text, "Failed: Saved and loaded text does not match expected text."
 
     # TESTCASE 03: Check for save and load (NEGATIVE TEST)
     save(_test_file2, _test_expected_text)
-    loaded_text = load(_test_file2)
-    assert loaded_text != _test_unexpected_text, "Failed: Loaded text should not match unexpected text."
+    _loaded_text = load(_test_file2)
+    assert _loaded_text != _test_unexpected_text, "Failed: Loaded text should not match unexpected text."
 
     # Testsuite cleanup
     os.remove(_test_file1)

@@ -47,83 +47,92 @@ class WordTrixManager(cmd.Cmd):
 
     def __init__(self):
         """Initialize the WordTrixManager with word database loading."""
+
         super().__init__()
         self.words = db.load(WordTrixManager.file_name)
 
 
-    def __del__(self):
+    def __del__(self) -> None:
         """Save the word database upon deletion of the instance."""
+
         db.save(WordTrixManager.file_name, self.words)
 
 
-    def print_help_on_error(self):
+    def print_help_on_error(self) -> None:
         """Display a message when a command fails."""
+
         print("FAILED: Type help or ? to list commands.")
 
 
-    def do_anagram_check(self, arg):
+    def do_anagram_check(self, arg: str) -> None:
         """Check two text objects for anagram: anagram_check <subject1>, <subject2>"""
+
         if arg:
             try:
-                subjects = arg.split(",")
-                if anagram.is_anagram(subjects[0], subjects[1]):
-                    self.words.append({"subject1": subjects[0], "subject2": subjects[1]})
+                _subjects = arg.split(",")
+                if anagram.is_anagram(_subjects[0], _subjects[1]):
+                    self.words.append({"subject1": _subjects[0], "subject2": _subjects[1]})
                     print(f"Anagram found. Row added: {self.words}")
                 else:
-                    print(f"No anagram found on >>{subjects[0]}<< >>{subjects[1]}<<")
+                    print(f"No anagram found on >>{_subjects[0]}<< >>{_subjects[1]}<<")
             except IndexError:
                 self.print_help_on_error()
         else:
             self.print_help_on_error()
 
 
-    def do_anagram_match(self, arg):
+    def do_anagram_match(self, arg: str) -> None:
         """Check a subject for an anagram in the list: anagram_match <subject>"""
+
         if arg:
             _anagram_match = False
-            for idx, word in enumerate(self.words, 1):
-                subject1 = word['subject1']
-                if anagram.is_anagram(arg, subject1):
+            for _idx, _word in enumerate(self.words, 1):
+                _subject1 = _word['subject1']
+                if anagram.is_anagram(arg, _subject1):
                     _anagram_match = True
-                    print(f"Match for >>{arg}<< found at {idx}. row: >>{subject1}<< >>{word['subject2']}<<")
+                    print(f"Match for >>{arg}<< found at {_idx}. row: >>{_subject1}<< >>{_word['subject2']}<<")
             if not _anagram_match:
                 print(f"No anagram found in db for >>{arg}<<")
         else:
             self.print_help_on_error()
 
 
-    def do_list(self, arg):
+    def do_list(self, arg: str) -> None:
         """List all stored words."""
+
         if not self.words:
             print("No words available.")
         else:
-            for idx, words in enumerate(self.words, 1):
-                print(f"{idx}. {words['subject1']} {words['subject2']}")
+            for _idx, _words in enumerate(self.words, 1):
+                print(f"{_idx}. {_words['subject1']} {_words['subject2']}")
 
 
-    def do_delete(self, arg):
+    def do_delete(self, arg: str) -> None:
         """Delete a word entry by specifying the row number: delete <row_number>"""
+
         try:
-            index = int(arg) - 1
-            if 0 <= index < len(self.words):
-                word = self.words.pop(index)
-                print(f"Deleted {index + 1}. row: {word['subject1']} {word['subject2']}")
+            _index = int(arg) - 1
+            if 0 <= _index < len(self.words):
+                _word = self.words.pop(_index)
+                print(f"Deleted {_index + 1}. row: {_word['subject1']} {_word['subject2']}")
             else:
                 print("Invalid row number.")
         except ValueError:
             print("Please provide a valid row number.")
 
 
-    def do_exit(self, arg):
+    def do_exit(self, arg: str) -> None:
         """Exit the Words Manager."""
+
         print("Exiting Words Manager.")
         return True
 
 
-    def do_clear(self, arg):
+    def do_clear(self, arg: str) -> None:
         """Clear all words (cannot be undone) with confirmation."""
-        confirmation = input("Are you sure you want to clear all words? (y/n): ")
-        if confirmation.lower() == 'y':
+
+        _confirmation = input("Are you sure you want to clear all words? (y/n): ")
+        if _confirmation.lower() == 'y':
             self.words = []
             print("All words cleared.")
         else:
@@ -133,7 +142,7 @@ class WordTrixManager(cmd.Cmd):
 ###############################################################################
 # Non-Interactive Mode
 
-def do_wordtrix(operation: str, subject1: str = "", subject2: str = ""):
+def do_wordtrix(operation: str, subject1: str = "", subject2: str = "") -> None:
     """
     Perform non-interactive wordtrix operations based on the specified operation.
 
@@ -144,17 +153,17 @@ def do_wordtrix(operation: str, subject1: str = "", subject2: str = ""):
     """
         
     # Create WordTrixManager instance
-    wordtrix = WordTrixManager()
-    print(f"{wordtrix.intro.split('.')[0]}.\n")
+    _wordtrix = WordTrixManager()
+    print(f"{_wordtrix.intro.split('.')[0]}.\n")
 
     # Select operations
     if operation == "list":
-        wordtrix.do_list(None)
+        _wordtrix.do_list(None)
     elif operation == "clear":
-        wordtrix.do_clear()
+        _wordtrix.do_clear()
     elif operation == "check":
-        wordtrix.do_anagram_check(f"{subject1},{subject2}")
+        _wordtrix.do_anagram_check(f"{subject1},{subject2}")
     elif operation == "match":
-        wordtrix.do_anagram_match(f"{subject1}")
+        _wordtrix.do_anagram_match(f"{subject1}")
     else:
         print(f"FAILED: Unsupported operation >>{operation}<<.")
