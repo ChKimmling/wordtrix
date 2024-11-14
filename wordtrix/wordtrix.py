@@ -13,7 +13,7 @@ Date: 13.11.2024
 """
 
 import argparse
-from wordtrix.wt_manager import wt_manager_cli as cli
+from wt_manager import wt_manager_cli as cli
 
 
 def parse_cli_arguments() -> argparse.Namespace:

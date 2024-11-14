@@ -12,8 +12,8 @@ Date: 13.11.2024
 """
 
 import cmd
-from wordtrix.wt_database import wt_database as db
-from wordtrix.wt_methods import wt_methods_anagram as anagram
+from wt_database import wt_database as db
+from wt_methods import wt_methods_anagram as anagram
 
 ###############################################################################
 # Interactive mode
