@@ -16,7 +16,7 @@ import argparse
 from wordtrix.wt_manager import wt_manager_cli as cli
 
 
-def parse_cli_arguments():
+def parse_cli_arguments() -> argparse.Namespace:
     """
     Define and parse command-line arguments for WordTrixManager.
     """

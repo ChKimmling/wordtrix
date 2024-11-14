@@ -49,7 +49,7 @@ def save(file: str, words: str) -> None:
 ###############################################################################
 # Test section
 
-def testsuite__database():
+def testsuite__database() -> None:
     """
     Test suite to verify the load and save functions for JSON file handling.
 
