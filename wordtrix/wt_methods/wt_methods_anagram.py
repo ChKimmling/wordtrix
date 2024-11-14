@@ -6,10 +6,6 @@ Anagram Checker Utility for WordTrixManager
 This script provides a function to check if two strings are anagrams of each other.
 It also includes a test suite to validate the anagram-checking functionality.
 
-Functions:
-- is_anagram: Determines if two strings are anagrams, with an optional case-sensitive check.
-- testsuite__anagram: A series of test cases to validate the is_anagram function.
-
 Author: ChKimmling
 Date: 13.11.2024
 """
@@ -30,7 +26,7 @@ def is_anagram(subject1: str, subject2: str, case_sensitive: bool = False) -> bo
     # Remove spaces for accurate comparison
     subject1 = subject1.replace(" ", "")
     subject2 = subject2.replace(" ", "")
-    
+
     # Convert to lowercase if case sensitivity is disabled
     if not case_sensitive:
         subject1 = subject1.lower()
@@ -49,10 +45,6 @@ def testsuite__anagram() -> None:
     """
     Test suite to validate the is_anagram function.
 
-    - Test case 1: Checks if two matching anagram strings return True.
-    - Test case 2: Checks that non-anagram strings return False.
-    - Test case 3: Verifies that case-sensitive comparison works correctly.
-
     Returns:
     - None
     """
@@ -64,7 +56,8 @@ def testsuite__anagram() -> None:
     assert not is_anagram("listen", "hear"), "Failed: Expected no anagram match."
 
     # TESTCASE 03: Check for non-matching anagram strings (case-sensitive)
-    assert not is_anagram("listen", "Silent", True), "Failed: Expected no match with case-sensitive check."
+    assert not is_anagram("listen", "Silent", True), "Failed: Expected no anagram match."
+
 
 # Execute tests if the script is called directly
 if __name__ == "__main__":

@@ -4,12 +4,9 @@
 Command-Line Interface (CLI) for WordTrix Anagram Manager
 
 This script serves as the CLI for interacting with the WordTrix anagram database.
-It provides options for interactive mode, listing entries, clearing entries, checking if two words are anagrams,
-and finding matching anagrams from the database. The argparse module is used to parse command-line arguments.
-
-Functions:
-- parse_cli_arguments: Defines and parses command-line arguments.
-- main: Processes the command-line arguments and executes the corresponding functions.
+It provides options for interactive mode, listing entries, clearing entries, 
+checking if two words are anagrams, and finding matching anagrams from the database.
+The argparse module is used to parse command-line arguments.
 
 Author: ChKimmling
 Date: 13.11.2024
@@ -22,16 +19,6 @@ from wt_manager import wt_manager_cli as cli
 def parse_cli_arguments():
     """
     Define and parse command-line arguments for WordTrixManager.
-
-    Arguments:
-    - --interactive: Enable interactive mode.
-    - --list: List anagrams in the database.
-    - --clear: Clear all anagrams from the database.
-    - --check: Check if two provided subjects are anagrams.
-    - --match: Check if a single subject has a matching anagram in the database.
-
-    Returns:
-    - Namespace: Parsed command-line arguments.
     """
 
     # Construct parser and define arguments
@@ -50,17 +37,10 @@ def parse_cli_arguments():
 def main():
     """
     Main function to execute operations based on parsed command-line arguments.
-
-    Operations:
-    - Interactive mode: Starts an interactive CLI for managing anagrams.
-    - List: Lists all stored anagrams in the database.
-    - Clear: Clears all entries in the anagram database.
-    - Check: Checks if two provided words are anagrams.
-    - Match: Finds if the given word has a matching anagram in the database.
     """
-    
+
     cli_args = parse_cli_arguments()
-    
+
     # Determine operation mode based on arguments
     if cli_args.interactive:
         try:

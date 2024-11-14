@@ -3,21 +3,9 @@
 """
 WordTrixManager: A Command-line Tool for Managing Anagram Pairs
 
-This script provides an interactive mode and a non-interactive mode for managing a database of anagram pairs.
-Users can check for anagrams, match existing entries, list stored entries, delete entries, and clear all entries.
-
-Dependencies:
-- wt_database (database management for storing/retrieving words)
-- wt_methods_anagram (provides methods to check anagram relationships)
-
-Usage:
-- Interactive mode: Start the script without parameters to enter the interactive command line interface.
-- Non-Interactive mode: Use the do_wordtrix function with specified operations.
-
-Classes:
-- WordTrixManager: Command line interface to manage anagram pairs.
-Functions:
-- do_wordtrix: A non-interactive function to perform operations directly from the script.
+This script provides an interactive mode and a non-interactive mode for 
+managing a database of anagram pairs. Users can check for anagrams, 
+match existing entries, list stored entries, delete entries, and clear all entries.
 
 Author: ChKimmling
 Date: 13.11.2024
@@ -33,11 +21,6 @@ from wt_methods import wt_methods_anagram as anagram
 class WordTrixManager(cmd.Cmd):
     """
     Command-line manager for handling anagram operations and database storage.
-    
-    Attributes:
-    - intro (str): Welcome message for the user.
-    - prompt (str): Command prompt indicator.
-    - file_name (str): Filename for JSON database of words.
     """
 
     intro = "Welcome to the Wordtrix. Type help or ? to list commands.\n"
@@ -151,7 +134,7 @@ def do_wordtrix(operation: str, subject1: str = "", subject2: str = "") -> None:
     - subject1 (str): The first subject for anagram operations.
     - subject2 (str): The second subject for anagram check.
     """
-        
+
     # Create WordTrixManager instance
     _wordtrix = WordTrixManager()
     print(f"{_wordtrix.intro.split('.')[0]}.\n")

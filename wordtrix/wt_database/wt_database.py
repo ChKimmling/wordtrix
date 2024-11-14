@@ -4,12 +4,8 @@
 JSON Database Handler for WordTrixManager
 
 This script provides functions to load and save a list of words in JSON format.
-It includes utility functions for file-based data persistence and a test suite to validate these functions.
-
-Functions:
-- load: Loads words from a specified JSON file.
-- save: Saves words to a specified JSON file.
-- testsuite__database: A simple suite of test cases to verify the functionality of load and save functions.
+It includes utility functions for file-based data persistence and a test suite
+to validate these functions.
 
 Author: ChKimmling
 Date: 13.11.2024
@@ -76,12 +72,12 @@ def testsuite__database():
     # TESTCASE 02: Check for save and load
     save(_test_file1, _test_expected_text)
     _loaded_text = load(_test_file1)
-    assert _loaded_text == _test_expected_text, "Failed: Saved and loaded text does not match expected text."
+    assert _loaded_text == _test_expected_text, "Failed: Saved and loaded text does not match."
 
     # TESTCASE 03: Check for save and load (NEGATIVE TEST)
     save(_test_file2, _test_expected_text)
     _loaded_text = load(_test_file2)
-    assert _loaded_text != _test_unexpected_text, "Failed: Loaded text should not match unexpected text."
+    assert _loaded_text != _test_unexpected_text, "Failed: Loaded text should not match."
 
     # Testsuite cleanup
     os.remove(_test_file1)
