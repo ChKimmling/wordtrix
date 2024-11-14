@@ -73,7 +73,8 @@ class WordTrixManager(cmd.Cmd):
                 _subject1 = _word['subject1']
                 if anagram.is_anagram(arg, _subject1):
                     _anagram_match = True
-                    print(f"Match for >>{arg}<< found at {_idx}. row: >>{_subject1}<< >>{_word['subject2']}<<")
+                    print(f"Match for >>{arg}<< found at {_idx}. row: ")
+                    print(f"  >>{_subject1}<< >>{_word['subject2']}<<")
             if not _anagram_match:
                 print(f"No anagram found in db for >>{arg}<<")
         else:

@@ -83,6 +83,7 @@ def testsuite__database():
     os.remove(_test_file1)
     os.remove(_test_file2)
 
+
 # Execute tests if the script is called directly
 if __name__ == "__main__":
     testsuite__database()
