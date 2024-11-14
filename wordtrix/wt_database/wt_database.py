@@ -26,7 +26,7 @@ def load(file: str) -> str:
     - list: The list of words loaded from the JSON file, or an empty list if the file doesn't exist.
     """
     if os.path.exists(file):
-        with open(file, "r") as file:
+        with open(file, "r", encoding="utf-8") as file:
             return json.load(file)
     return []
 
@@ -42,7 +42,7 @@ def save(file: str, words: str) -> None:
     Returns:
     - None
     """
-    with open(file, "w") as file:
+    with open(file, "w", encoding="utf-8") as file:
         json.dump(words, file, indent=4)
 
 

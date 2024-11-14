@@ -81,7 +81,7 @@ class WordTrixManager(cmd.Cmd):
             self.print_help_on_error()
 
 
-    def do_list(self, arg: str) -> None:
+    def do_list(self, _arg: str) -> None:
         """List all stored words."""
 
         if not self.words:
@@ -105,14 +105,14 @@ class WordTrixManager(cmd.Cmd):
             print("Please provide a valid row number.")
 
 
-    def do_exit(self, arg: str) -> None:
+    def do_exit(self, _arg: str) -> None:
         """Exit the Words Manager."""
 
         print("Exiting Words Manager.")
         return True
 
 
-    def do_clear(self, arg: str) -> None:
+    def do_clear(self, _arg: str) -> None:
         """Clear all words (cannot be undone) with confirmation."""
 
         _confirmation = input("Are you sure you want to clear all words? (y/n): ")
@@ -144,7 +144,7 @@ def do_wordtrix(operation: str, subject1: str = "", subject2: str = "") -> None:
     if operation == "list":
         _wordtrix.do_list(None)
     elif operation == "clear":
-        _wordtrix.do_clear()
+        _wordtrix.do_clear(None)
     elif operation == "check":
         _wordtrix.do_anagram_check(f"{subject1},{subject2}")
     elif operation == "match":
