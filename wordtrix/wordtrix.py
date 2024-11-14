@@ -24,15 +24,15 @@ def parse_cli_arguments() -> argparse.Namespace:
     # Construct parser and define arguments
     parser = argparse.ArgumentParser(description="WordTrix Anagram Manager CLI")
 
-    parser.add_argument("--interactive", help="Interactive mode.",
+    parser.add_argument("--interactive", help="Start the interactive mode.",
                         action="store_true", default=False)
-    parser.add_argument("--list", help="List anagrams in db",
+    parser.add_argument("--list", help="List all stored anagram pairs.",
                         action="store_true")
-    parser.add_argument("--clear", help="Clear anagrams in db",
+    parser.add_argument("--clear", help="Clear all stored anagram pairs.",
                         action="store_true")
-    parser.add_argument("--check", nargs=2, help="Check for anagram",
+    parser.add_argument("--check", nargs=2, help="Check if subject1 and subject2 are anagrams.",
                         metavar=('sub1', 'sub2'))
-    parser.add_argument("--match", nargs=1, help="Check for anagram match in db",
+    parser.add_argument("--match", nargs=1, help="Find if a stored pair matches the provided subject",
                         metavar='sub1')
 
     # Return parsed CLI arguments

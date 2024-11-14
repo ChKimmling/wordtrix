@@ -95,8 +95,8 @@ The WordTrix CLI supports several command-line options:
 - `--interactive`: Start the interactive mode.
 - `--list`: List all stored anagram pairs.
 - `--clear`: Clear all stored anagram pairs.
-- `--check <word1> <word2>`: Check if `word1` and `word2` are anagrams.
-- `--match <word>`: Find if a stored pair matches the provided `word`.
+- `--check <subject1> <subject2>`: Check if `subject1` and `subject2` are anagrams.
+- `--match <subject>`: Find if a stored pair matches the provided `subject`.
 
 ### Example Usage
 
